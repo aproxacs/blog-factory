@@ -19,25 +19,33 @@ description: >
 
 ### 사용자 준비
 사용자는 `drafts/` 폴더 바로 아래에 다음 파일을 놓아둔다:
-- `prompts.json` (필수) — LLM 대화 원문
-- `summary.md` (옵션) — 대화 요약. 없으면 prompts.json에서 자동 생성.
+- `prompts.json` (필수) — AI Studio 대화 내보내기 파일
+- `summary.md` (옵션) — 대화 요약. 없으면 prompt.md에서 자동 생성.
 
 ### 파일 탐색
 `drafts/` 에서 소재 파일을 찾는다. 탐색 순서:
 
-1. **drafts/ 루트에 prompts.json이 있는 경우** (새 글 작성)
-   - prompts.json 내용을 간략히 분석하여 주제 키워드를 추출
+1. **drafts/ 루트에 prompts.json 또는 prompt.md가 있는 경우** (새 글 작성)
+   - prompt.md를 읽어 주제 키워드를 추출
    - `drafts/YYYY-MM-DD-{주제키워드}/` 디렉토리를 생성 (오늘 날짜 사용)
-   - prompts.json (+ summary.md가 있으면 함께)을 새 디렉토리로 이동
-   - summary.md가 없으면 prompts.json에서 핵심 내용을 요약하여 summary.md를 자동 생성
+   - 소재 파일(prompt.md, prompts.json, summary.md)을 새 디렉토리로 이동
+   - summary.md가 없으면 prompt.md에서 핵심 내용을 요약하여 summary.md를 자동 생성
    - 생성된 디렉토리와 파일을 사용자에게 보고
 
 2. **drafts/ 루트에 파일이 없는 경우** (기존 글 이어쓰기)
    - drafts/ 하위 폴더 중 가장 최근 수정된 폴더를 사용
-   - 해당 폴더에 prompts.json 또는 prompt.md가 있는지 확인
+   - 해당 폴더에 prompt.md가 있는지 확인
 
 3. **아무것도 없는 경우**
    - 사용자에게 "drafts/ 폴더에 prompts.json을 넣어주세요"라고 안내하고 중단
+
+### prompt.md 변환
+**모든 단계에서 prompt.md를 대화 소재의 기본 파일로 사용한다.**
+prompt.md가 없고 prompts.json이 있으면, 추출 스크립트를 실행하여 생성한다:
+```bash
+python scripts/extract-prompts.py <prompts.json 경로>
+```
+변환 완료 후 prompts.json은 삭제한다. prompt.md를 기준으로 진행한다.
 
 ### 폴더명 규칙
 - 형식: `YYYY-MM-DD-{주제키워드}` (예: `2026-03-27-물고기-지느러미`)
@@ -71,7 +79,7 @@ summary.md를 읽고 주제를 파악한다. 그 후 styles/ 폴더의 스타일
 
 각 writer 에이전트에게 전달할 정보:
 1. summary.md 내용
-2. prompts 파일에서 핵심 대화 (너무 크면 요약)
+2. prompt.md에서 핵심 대화 (너무 크면 요약)
 3. 해당 스타일 파일 (styles/{style-name}.md) 내용
 4. `reviews/feedback-log.md` 내용 (파일이 있는 경우). 해당 스타일의 과거 피드백을 반드시 반영하도록 지시
 5. 아래 작성 지침
