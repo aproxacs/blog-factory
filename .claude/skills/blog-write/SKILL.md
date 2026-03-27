@@ -166,6 +166,12 @@ editor 에이전트 정의: `agents/editor.md` 참조
 - Substack에서 검색 가능한 키워드 포함
 - 한글 + 영문 태그 모두 제안
 
+### Substack Note
+- 블로그 글을 홍보하는 짧은 Note 텍스트 (한글/영문 각 1개)
+- 핵심 인사이트를 담은 훅(hook)으로 시작하여 글로 유도
+- 280자 이내, 캐주얼한 톤
+- 글 링크 자리를 `[링크]`로 표시
+
 ### 이미지 프롬프트
 - Gemini (Nano Banana) 용 이미지 생성 프롬프트
 - 글의 핵심 컨셉을 시각적으로 표현
@@ -189,7 +195,7 @@ editor 에이전트 정의: `agents/editor.md` 참조
 - `post-ko.md` — 한글 최종본
 - `post-en.md` — 영문 번역본
 - `image-prompt.md` — 이미지 생성 프롬프트
-- `meta.md` — 제목, 부제, 태그 (한/영)
+- `meta.md` — 제목, 부제, 태그, Substack Note (한/영)
 
 완료 후 요약을 출력한다:
 

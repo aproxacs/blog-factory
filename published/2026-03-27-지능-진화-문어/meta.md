@@ -24,5 +24,10 @@
 한글: 진화생물학, 좌우대칭, 뇌과학, 문어, 지능의 진화, 생명의 역사, 과학에세이
 영문: evolution, bilateral symmetry, neuroscience, octopus intelligence, origin of mind, natural history, science writing
 
+## Substack Note
+Went diving, saw a fish, and thought "why are you perfectly symmetrical?" That question led me down a rabbit hole — gravity, light, brain liberation, and an octopus that planned a jailbreak. Two-thirds of an octopus's neurons are in its arms. It escaped an aquarium. I lose my keys daily.
+
+https://aproxacs.substack.com/p/why-do-fish-look-the-same-on-both
+
 ## 사용 스타일
 빌 브라이슨 (Bill Bryson)
