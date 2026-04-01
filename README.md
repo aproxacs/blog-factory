@@ -49,24 +49,6 @@ summary.md 생성 (글 방향 + 활용할 소재)
 | 2026-03-29 | [길리 섬의 말과 나의 도덕적 원](https://substack.com/home/post/p-192475759) | [The Horse on Gili Island and My Moral Circle](https://substack.com/home/post/p-192475891) |
 | 2026-03-27 | [물고기는 왜 좌우가 같을까](https://substack.com/home/post/p-192288746) | [Why Do Fish Look the Same on Both Sides?](https://substack.com/home/post/p-192289185) |
 
-## 셋업 (새 머신)
-
-Claude Code의 메모리가 `.claude/memory/`에 저장되어 있다. 새 머신에서 클론한 후 심링크를 걸어야 메모리가 연결된다:
-
-```bash
-# 프로젝트 클론 후
-ln -s "$(pwd)/.claude/memory" ~/.claude/projects/-Users-$(whoami)-$(pwd | sed 's|/|-|g' | sed 's|^-||')/memory
-```
-
-또는 프로젝트 경로에 맞게 직접 지정:
-
-```bash
-# Claude Code가 사용하는 메모리 경로 확인 후
-ln -s /path/to/blog-factory/.claude/memory ~/.claude/projects/<project-key>/memory
-```
-
-> `<project-key>`는 프로젝트 절대 경로에서 `/`를 `-`로 치환한 값 (예: `-Users-changshin-work-blogger`)
-
 ## 도구
 
 - [Claude Code](https://claude.ai/claude-code) — 에이전트 오케스트레이션
